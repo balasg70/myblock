@@ -10,9 +10,6 @@ To implement the instructions in this post, you will need the following accounts
 
 <br />
 
-## Architecture
-
-<img width="1042" alt="architecture-screenshot" src="images/Architecture.png">
 
 <br />
 
