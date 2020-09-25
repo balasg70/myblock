@@ -42,3 +42,13 @@ Or you can run it from Maven directly using the Spring Boot Maven plugin. If you
 ```
 ./mvnw spring-boot:run
 ```
+Tech stack
+
+Java 8
+
+Spring Boot
+
+Terraform
+
+Kubernetes
+
