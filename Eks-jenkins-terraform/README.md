@@ -9,6 +9,7 @@ To implement the instructions in this post, you will need the following accounts
 * A GitHub account – [sign up for a new GitHub account](https://help.github.com/en/github/getting-started-with-github/signing-up-for-a-new-github-account)
 
 This project requires Java 8 need to be installed.
+
 Clone/Checkout the project from version control system (git) and follow below steps
 <br />
 
