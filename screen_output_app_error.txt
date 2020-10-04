@@ -1,0 +1,87 @@
++ Get current deployment
+
+  Success
+
++ Prep deployment
+
+  Success
+
+Validation in default:
+
+- WARNING Version "1.19.0" was patched by "1.19.14". Please upgrade
+
+  when possible.
+
+? https://www.spinnaker.io/community/releases/versions/
+
+
+
+Validation in default.provider.dockerRegistry.ibuchh-docker:
+
+- WARNING You have a supplied a username but no password.
+
+
+
+- WARNING Your docker registry has no repositories specified, and
+
+  the registry's catalog is empty. Spinnaker will not be able to deploy any images
+
+  until some are pushed to this registry.
+
+? Manually specify some repositories for this docker registry to
+
+  index.
+
+
+
+Validation in default.stats:
+
+- INFO Stats are currently ENABLED. Usage statistics are being
+
+  collected. Thank you! These stats inform improvements to the product, and that
+
+  helps the community. To disable, run `hal config stats disable`. To learn more
+
+  about what and how stats data is used, please see
+
+  https://www.spinnaker.io/community/stats.
+
+
+
+Validation in default.security:
+
+- WARNING Your UI or API domain does not have override base URLs
+
+  set even though your Spinnaker deployment is a Distributed deployment on a
+
+  remote cloud provider. As a result, you will need to open SSH tunnels against
+
+  that deployment to access Spinnaker.
+
+? We recommend that you instead configure an authentication
+
+  mechanism (OAuth2, SAML2, or x509) to make it easier to access Spinnaker
+
+  securely, and then register the intended Domain and IP addresses that your
+
+  publicly facing services will be using.
+
+
+
++ Preparation complete... deploying Spinnaker
+
++ Get current deployment
+
+  Success
+
+- Apply deployment
+
+  Failure
+
+Validation in Global:
+
+! ERROR Failed to backup user file: /root/.kube/config
+
+
+
+- Failed to deploy Spinnaker.
