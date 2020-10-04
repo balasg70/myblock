@@ -1,0 +1,89 @@
+
+
+
+
+https://aws.amazon.com/amazon-linux-2/
+
+2 package(s) needed for security, out of 13 available
+
+Run "sudo yum update" to apply all updates.
+
+-bash: warning: setlocale: LC_CTYPE: cannot change locale (UTF-8): No such file or directory
+
+[ec2-user@ip-10-0-1-93 ~]$ sudo su -
+
+Last login: Fri Oct  2 09:22:21 UTC 2020 on pts/2
+
+[root@ip-10-0-1-93 ~]# kubectl get services --all-namespaces
+
+NAMESPACE     NAME               TYPE           CLUSTER-IP       EXTERNAL-IP                                                              PORT(S)         AGE
+
+default       hello-kubernetes   LoadBalancer   10.100.141.170   a96412d3fd7aa4e9e95137b1d8aadc4e-650145602.us-east-1.elb.amazonaws.com   80:30975/TCP    2d1h
+
+default       kubernetes         ClusterIP      10.100.0.1       <none>                                                                   443/TCP         2d19h
+
+kube-system   kube-dns           ClusterIP      10.100.0.10      <none>                                                                   53/UDP,53/TCP   2d19h
+
+testapp       hello-kubernetes   LoadBalancer   10.100.250.110   aeac6ecbb22d940f2a2ae259784027be-954773184.us-east-1.elb.amazonaws.com   80:31486/TCP    40h
+
+[root@ip-10-0-1-93 ~]# kubectl get all  --all-namespaces
+
+NAMESPACE     NAME                                    READY   STATUS    RESTARTS   AGE
+
+default       pod/hello-kubernetes-fb869d65c-2q7nq    0/1     Pending   0          6m28s
+
+default       pod/hello-kubernetes-fb869d65c-8b98v    0/1     Pending   0          6m28s
+
+default       pod/hello-kubernetes-fb869d65c-x7phh    0/1     Pending   0          6m29s
+
+kube-system   pod/coredns-75b44cb5b4-krm8n            0/1     Pending   0          6m28s
+
+kube-system   pod/coredns-75b44cb5b4-rr9px            0/1     Pending   0          6m28s
+
+testapp       pod/hello-kubernetes-67c76959d5-b6dlf   0/1     Pending   0          6m28s
+
+testapp       pod/hello-kubernetes-67c76959d5-bdkf9   0/1     Pending   0          6m28s
+
+testapp       pod/hello-kubernetes-67c76959d5-qqrqv   0/1     Pending   0          6m28s
+
+
+
+NAMESPACE     NAME                       TYPE           CLUSTER-IP       EXTERNAL-IP                                                              PORT(S)         AGE
+
+default       service/hello-kubernetes   LoadBalancer   10.100.141.170   a96412d3fd7aa4e9e95137b1d8aadc4e-650145602.us-east-1.elb.amazonaws.com   80:30975/TCP    2d1h
+
+default       service/kubernetes         ClusterIP      10.100.0.1       <none>                                                                   443/TCP         2d19h
+
+kube-system   service/kube-dns           ClusterIP      10.100.0.10      <none>                                                                   53/UDP,53/TCP   2d19h
+
+testapp       service/hello-kubernetes   LoadBalancer   10.100.250.110   aeac6ecbb22d940f2a2ae259784027be-954773184.us-east-1.elb.amazonaws.com   80:31486/TCP    40h
+
+
+
+NAMESPACE     NAME                        DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+
+kube-system   daemonset.apps/aws-node     0         0         0       0            0           <none>          2d19h
+
+kube-system   daemonset.apps/kube-proxy   0         0         0       0            0           <none>          2d19h
+
+
+
+NAMESPACE     NAME                               READY   UP-TO-DATE   AVAILABLE   AGE
+
+default       deployment.apps/hello-kubernetes   0/3     3            0           2d1h
+
+kube-system   deployment.apps/coredns            0/2     2            0           2d19h
+
+testapp       deployment.apps/hello-kubernetes   0/3     3            0           40h
+
+
+
+NAMESPACE     NAME                                          DESIRED   CURRENT   READY   AGE
+
+default       replicaset.apps/hello-kubernetes-fb869d65c    3         3         0       2d1h
+
+kube-system   replicaset.apps/coredns-75b44cb5b4            2         2         0       2d19h
+
+testapp       replicaset.apps/hello-kubernetes-67c76959d5   3         3         0       40h
+
+[root@ip-10-0-1-93 ~]# 
