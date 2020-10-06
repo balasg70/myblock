@@ -18,17 +18,17 @@ data "aws_ami" "amazon-linux-2" {
 
 resource "aws_instance" "jenkins-instance" {
 #  ami             = "${data.aws_ami.amazon-linux-2.id}"
-  ami              = "amzn2-ami-hvm-2.0.20180622.1-x86_64-gp2"
-  instance_type   = "t2.medium"
+  ami              = "ami-8c122be9"
+  instance_type   = "t2.micro"
 #  key_name        = "${var.keyname}"
-  key_name        = "aws_key_pair.deployer.key_name"
+  key_name        = aws_key_pair.deployer.key_name
   #vpc_id          = "${aws_vpc.development-vpc.id}"
   vpc_security_group_ids = ["${aws_security_group.sg_allow_ssh_jenkins.id}"]
 #  subnet_id          = "${aws_subnet.public-subnet-1.id}"
-  subnet_id          = "aws_subnet.public-subnet-1.id"
+  subnet_id          = aws_subnet.public-subnet-1.id
   #name            = "${var.name}"
 #  user_data = ${file("install_jenkins.sh")}
-  user_data = "data.template_file.user_data.rendered"
+  user_data = data.template_file.user_data.rendered
 
   associate_public_ip_address = true
   tags = {
@@ -39,7 +39,7 @@ resource "aws_instance" "jenkins-instance" {
 resource "aws_security_group" "sg_allow_ssh_jenkins" {
   name        = "allow_ssh_jenkins"
   description = "Allow SSH and Jenkins inbound traffic"
-  vpc_id      = "aws_vpc.development-vpc.id"
+  vpc_id      = aws_vpc.development-vpc.id
 
   ingress {
     from_port   = 22
@@ -73,7 +73,7 @@ resource "aws_key_pair" "deployer" {
 }
 
 data "template_file" "user_data" {
-  template = "${file("install_jenkins.sh.tpl")}"
+  template = "${file("install_jenkins_sh.tpl")}"
 # {
 #   template = <<EOF
 #install_jenkins.sh
