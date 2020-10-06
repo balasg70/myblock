@@ -8,7 +8,7 @@ resource "aws_vpc" "development-vpc" {
 resource "aws_subnet" "public-subnet-1" {
   cidr_block        = var.public_subnet_1_cidr
   vpc_id            = aws_vpc.development-vpc.id
-  availability_zone = "us-east-1a"
+  availability_zone = "us-east-2a"
   tags = {
     Name = "${var.environment}-Public-Subnet-1"
   }
@@ -16,7 +16,7 @@ resource "aws_subnet" "public-subnet-1" {
 resource "aws_subnet" "public-subnet-2" {
   cidr_block        = var.public_subnet_2_cidr
   vpc_id            = aws_vpc.development-vpc.id
-  availability_zone = "us-east-1b"
+  availability_zone = "us-east-2b"
   tags = {
     Name = "${var.environment}-Public-Subnet-2"
   }
@@ -24,7 +24,7 @@ resource "aws_subnet" "public-subnet-2" {
 resource "aws_subnet" "public-subnet-3" {
   cidr_block        = var.public_subnet_3_cidr
   vpc_id            = aws_vpc.development-vpc.id
-  availability_zone = "us-east-1c"
+  availability_zone = "us-east-2c"
   tags = {
     Name = "${var.environment}-Public-Subnet-3"
   }
@@ -50,7 +50,7 @@ resource "aws_route_table_association" "public-route-3-association" {
 resource "aws_subnet" "private-subnet-1" {
   cidr_block        = var.private_subnet_1_cidr
   vpc_id            = aws_vpc.development-vpc.id
-  availability_zone = "us-east-1a"
+  availability_zone = "us-east-2a"
   tags = {
     Name = "${var.environment}-Private-Subnet-1"
   }
@@ -58,7 +58,7 @@ resource "aws_subnet" "private-subnet-1" {
 resource "aws_subnet" "private-subnet-2" {
   cidr_block        = var.private_subnet_2_cidr
   vpc_id            = aws_vpc.development-vpc.id
-  availability_zone = "us-east-1b"
+  availability_zone = "us-east-2b"
   tags = {
     Name = "${var.environment}-Private-Subnet-2"
   }
@@ -66,7 +66,7 @@ resource "aws_subnet" "private-subnet-2" {
 resource "aws_subnet" "private-subnet-3" {
   cidr_block        = var.private_subnet_3_cidr
   vpc_id            = aws_vpc.development-vpc.id
-  availability_zone = "us-east-1c"
+  availability_zone = "us-east-2c"
   tags = {
     Name = "${var.environment}-Private-Subnet-3"
   }
